@@ -6,10 +6,17 @@ import numpy as np
 lambda_gen = 75
 max_variables = 1000
 
-random_variables = np.random.exponential(lambda_gen, max_variables)
+expected_mean = 1/lambda_gen
+expected_variance = 1/(lambda_gen**2)
 
-sample_mean = np.mean(random_variables)
-sample_variance = np.var(random_variables)
+random_variables = np.random.exponential(1/lambda_gen, max_variables)
 
-print(sample_mean)
-print(sample_variance)
+actual_mean = np.mean(random_variables)
+actual_variance = np.var(random_variables)
+
+# can set to whatever, used 0.02 just because
+tolerance = 0.02
+if abs(sample_mean - expected_mean) < tolerance*expected_mean and abs(sample_variance - expected_variance) < tolerance*expected_variance:
+    print("works")
+else:
+    print("dont work :(")
