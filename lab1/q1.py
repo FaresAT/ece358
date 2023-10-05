@@ -1,8 +1,5 @@
 import numpy as np
 
-# Lab 1
-# M/M/1 and M/M/1/K Queue Simulation
-
 lambda_gen = 75
 max_variables = 1000
 
@@ -16,6 +13,7 @@ actual_variance = np.var(random_variables)
 
 tolerance = 0.05
 if abs(actual_mean - expected_mean) < tolerance*expected_mean and abs(actual_variance - expected_variance) < tolerance*expected_variance:
-    print("works")
+    print("works correctly, values are within a 5 percent range of whats expected")
 else:
-    print("dont work :(")
+    print("doesn't work correctly, values are not within a 5 percent range of whats expected")
+
