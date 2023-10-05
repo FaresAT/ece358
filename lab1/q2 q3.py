@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 
 class MM1QueueSimulator:
     def __init__(self, lambda_, mu, T):
+        # Required parameters
         self.lambda_ = lambda_
         self.mu = mu
         self.T = T
@@ -20,7 +21,7 @@ class MM1QueueSimulator:
         self.next_departure_time = float('inf')  # No departures initially
         self.next_observer_time = np.random.exponential(1 / (5 * self.lambda_))
         
-        # The queue
+        # The FIFO queue
         self.queue = []
         
     def process_arrival(self):
@@ -82,7 +83,7 @@ C = 10**6  # bps
 mu = C / L
 T = 10000  # Total simulation time
 
-rho_values = [1.2]
+rho_values = np.arange(0.25, 0.95, 0.1)
 EN_values = []
 PIDLE_values = []
 
@@ -96,54 +97,18 @@ for rho in rho_values:
 
 # Plot E[N]
 plt.figure()
-plt.bar(rho_values, EN_values, width=0.05, align='center')
-plt.title('E[N] vs ρ for M/M/1 queue at ρ=1.2')
+plt.plot(rho_values, EN_values, '-o')
+plt.title('E[N] vs ρ')
 plt.xlabel('ρ')
 plt.ylabel('E[N]')
-plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-plt.axhline(0, color='black',linewidth=0.5)
-plt.axvline(0, color='black',linewidth=0.5)
-plt.tight_layout()
+plt.grid(True)
 plt.show()
 
 # Plot PIDLE
 plt.figure()
-plt.bar(rho_values, PIDLE_values, width=0.05, align='center')
-plt.title('PIDLE vs ρ for M/M/1 queue at ρ=1.2')
+plt.plot(rho_values, PIDLE_values, '-o')
+plt.title('PIDLE vs ρ')
 plt.xlabel('ρ')
 plt.ylabel('PIDLE')
-plt.grid(True, which='both', linestyle='--', linewidth=0.5)
-plt.axhline(0, color='black',linewidth=0.5)
-plt.axvline(0, color='black',linewidth=0.5)
-plt.tight_layout()
+plt.grid(True)
 plt.show()
-
-# rho_values = np.arange(0.25, 0.95, 0.1)
-# EN_values = []
-# PIDLE_values = []
-
-# for rho in rho_values:
-#     lambda_ = rho * mu
-#     simulator = MM1QueueSimulator(lambda_, mu, T)
-#     EN, PIDLE = simulator.simulate()
-    
-#     EN_values.append(EN)
-#     PIDLE_values.append(PIDLE)
-
-# # Plot E[N]
-# plt.figure()
-# plt.plot(rho_values, EN_values, '-o')
-# plt.title('E[N] vs ρ')
-# plt.xlabel('ρ')
-# plt.ylabel('E[N]')
-# plt.grid(True)
-# plt.show()
-
-# # Plot PIDLE
-# plt.figure()
-# plt.plot(rho_values, PIDLE_values, '-o')
-# plt.title('PIDLE vs ρ')
-# plt.xlabel('ρ')
-# plt.ylabel('PIDLE')
-# plt.grid(True)
-# plt.show()
