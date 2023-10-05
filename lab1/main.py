@@ -16,7 +16,7 @@ actual_variance = np.var(random_variables)
 
 # can set to whatever, used 0.02 just because
 tolerance = 0.02
-if abs(sample_mean - expected_mean) < tolerance*expected_mean and abs(sample_variance - expected_variance) < tolerance*expected_variance:
+if abs(actual_mean - expected_mean) < tolerance*expected_mean and abs(actual_variance - expected_variance) < tolerance*expected_variance:
     print("works")
 else:
     print("dont work :(")
