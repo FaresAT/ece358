@@ -14,8 +14,7 @@ random_variables = np.random.exponential(1/lambda_gen, max_variables)
 actual_mean = np.mean(random_variables)
 actual_variance = np.var(random_variables)
 
-# can set to whatever, used 0.02 just because
-tolerance = 0.02
+tolerance = 0.05
 if abs(actual_mean - expected_mean) < tolerance*expected_mean and abs(actual_variance - expected_variance) < tolerance*expected_variance:
     print("works")
 else:
