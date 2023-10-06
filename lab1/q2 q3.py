@@ -81,7 +81,7 @@ class MM1QueueSimulator:
 L = 2000  # bits
 C = 10**6  # bps
 mu = C / L
-T = 10000  # Total simulation time
+T = 1000  # Total simulation time
 
 rho_values = np.arange(0.25, 0.95, 0.1)
 EN_values = []

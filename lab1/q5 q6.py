@@ -85,7 +85,7 @@ for K in K_values:
 plt.figure()
 for K in K_values:
     plt.plot(rho_values, EN_results[K], '-o', label=f"K={K}")
-plt.title('E[N] vs ρ for M/M/1/K queue with Observers')
+plt.title('E[N] vs ρ for M/M/1/K queue')
 plt.xlabel('ρ')
 plt.ylabel('E[N]')
 plt.grid(True)
@@ -96,7 +96,7 @@ plt.show()
 plt.figure()
 for K in K_values:
     plt.plot(rho_values, PLOSS_results[K], '-o', label=f"K={K}")
-plt.title('PLOSS vs ρ for M/M/1/K queue with Observers')
+plt.title('PLOSS vs ρ for M/M/1/K queue')
 plt.xlabel('ρ')
 plt.ylabel('PLOSS')
 plt.grid(True)
